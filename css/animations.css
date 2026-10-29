@@ -1,16 +1,11 @@
-/* Motion. Opening sequence runs once the seal is tapped (html.is-open). */
-@keyframes pulse { 0%, 100% { box-shadow: inset 0 0 0 6px #FFF, inset 0 0 0 7px rgba(179,152,105,.35), 0 0 0 0 rgba(179,152,105,.45); } 50% { box-shadow: inset 0 0 0 6px #FFF, inset 0 0 0 7px rgba(179,152,105,.35), 0 0 0 20px rgba(179,152,105,0); } }
+/* Motion. The opening sequence runs once the seal is tapped (html.is-open). */
+@keyframes pulse { 0%, 100% { box-shadow: inset 0 0 0 6px #FFF, inset 0 0 0 7px rgba(176,139,67,.35), 0 12px 30px rgba(52,86,150,.12), 0 0 0 0 rgba(176,139,67,.4); } 50% { box-shadow: inset 0 0 0 6px #FFF, inset 0 0 0 7px rgba(176,139,67,.35), 0 12px 30px rgba(52,86,150,.12), 0 0 0 20px rgba(176,139,67,0); } }
 @keyframes seal-open { 0% { transform: none; } 35% { transform: scale(.9) rotate(-8deg); } 100% { transform: scale(1.45) rotate(14deg); opacity: 0; } }
 @keyframes cover-lift { 0% { opacity: 1; transform: none; } 100% { opacity: 0; transform: translateY(-40px) scale(1.03); } }
-@keyframes reveal-up { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
-@keyframes ken-burns { from { transform: scale(1.18); } to { transform: scale(1); } }
-@keyframes letter-in { from { opacity: 0; transform: translateY(40%); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
 @keyframes fade-up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
-@keyframes line-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-@keyframes dust-rise { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: .9; } 100% { transform: translateY(-300px); opacity: 0; } }
+@keyframes photo-in { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: none; } }
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes tick { from { opacity: .3; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
-@keyframes scroll-cue { 0%, 100% { transform: translateY(0); opacity: .5; } 50% { transform: translateY(6px); opacity: 1; } }
 
 /* Cover */
 .seal { animation: pulse 2.4s ease-in-out infinite; }
@@ -18,17 +13,15 @@
 .cover.is-opening .seal { animation: seal-open 1s var(--ease-io) forwards; }
 
 /* Hero opening sequence */
-.is-open .hero-media { animation: reveal-up 1.6s var(--ease-io) both; }
-.is-open .hero-media img { animation: ken-burns 9s cubic-bezier(.2, .6, .2, 1) both; }
-.is-open .hero-eyebrow { animation: fade-up 1s var(--ease) 1.1s both; }
-.is-open .hero-names .letter { animation: letter-in 1s var(--ease) both; animation-delay: var(--d, 0s); }
-.is-open .hero-names .amp { animation: letter-in 1s var(--ease) 2s both; }
-.is-open .hero-thai { animation: fade-up 1s var(--ease) 2.5s both; }
-.is-open .gold-line { animation: line-grow 1.4s var(--ease-io) 2.6s both; }
-.is-open .date-row { animation: fade-up 1.1s var(--ease) 2.8s both; }
-
-/* Gold dust */
-.mote { position: absolute; bottom: 0; border-radius: 50%; background: var(--champagne); animation: dust-rise linear infinite; }
+.is-open .hero-photo img { animation: photo-in 1.6s var(--ease) both; }
+.is-open .hero-copy > * { animation: fade-up 1s var(--ease) both; }
+.is-open .hero-copy > :nth-child(1) { animation-delay: .5s; }
+.is-open .hero-copy > :nth-child(2) { animation-delay: .7s; }
+.is-open .hero-copy > :nth-child(3) { animation-delay: .9s; }
+.is-open .hero-copy > :nth-child(4) { animation-delay: 1s; }
+.is-open .hero-copy > :nth-child(5) { animation-delay: 1.1s; }
+.is-open .hero-copy > :nth-child(6) { animation-delay: 1.3s; }
+.is-open .hero-copy > :nth-child(n+7) { animation-delay: 1.5s; }
 
 /* Music */
 .music.is-playing .disc { animation: spin 6s linear infinite; }
@@ -44,5 +37,4 @@
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js .reveal { opacity: 1; transform: none; }
-  .dust { display: none; }
 }

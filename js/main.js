@@ -4,34 +4,17 @@
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const $ = id => document.getElementById(id);
 
-  // ---- Names appear letter by letter ----
-  document.querySelectorAll("[data-split]").forEach(el => {
-    const start = Number(el.dataset.delay || 0);
-    const text = el.textContent.trim();
-    el.textContent = "";
-    [...text].forEach((ch, i) => {
-      const s = document.createElement("span");
-      s.className = "letter";
-      s.textContent = ch;
-      s.style.setProperty("--d", (start + i * 0.09).toFixed(2) + "s");
-      el.append(s);
-    });
-  });
-
-  // ---- Gold dust over the hero ----
-  const dust = document.querySelector(".dust");
-  if (dust && !reduce) {
-    for (let i = 0; i < 14; i++) {
-      const m = document.createElement("span");
-      const size = 2 + Math.round(Math.random() * 2);
-      m.className = "mote";
-      m.style.left = (4 + Math.random() * 92).toFixed(1) + "%";
-      m.style.width = m.style.height = size + "px";
-      m.style.animationDuration = (6 + Math.random() * 5).toFixed(1) + "s";
-      m.style.animationDelay = (Math.random() * 6).toFixed(1) + "s";
-      dust.append(m);
-    }
+  // ---- Mobile menu ----
+  const burger = $("burger");
+  const drawer = $("drawer");
+  function setMenu(open) {
+    drawer.classList.toggle("open", open);
+    burger.setAttribute("aria-expanded", String(open));
+    burger.setAttribute("aria-label", open ? "ปิดเมนู" : "เปิดเมนู");
   }
+  burger.addEventListener("click", () => setMenu(!drawer.classList.contains("open")));
+  drawer.addEventListener("click", e => { if (e.target.closest("a")) setMenu(false); });
+  addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
 
   // ---- Music ----
   const audio = $("bg-music");
@@ -100,19 +83,27 @@
     frame.loading = "lazy";
     frame.referrerPolicy = "no-referrer-when-downgrade";
     frame.allowFullscreen = true;
-    $("map-embed").append(frame);
-    $("map-embed").hidden = false;
+    const box = $("map-box");
+    box.replaceChildren(frame);
+    box.removeAttribute("role");
+    box.removeAttribute("aria-label");
   }
 
-  // ---- Optional Spotify section ----
+  // ---- Song: link card by default, Spotify player when spotifyEmbedUrl is set ----
+  const songCard = $("song-card");
   if (config.spotifyEmbedUrl) {
     const frame = document.createElement("iframe");
     frame.src = config.spotifyEmbedUrl;
     frame.title = "เพลงของเรา (Spotify)";
     frame.loading = "lazy";
     frame.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
-    $("spotify-container").append(frame);
-    $("song").hidden = false;
+    $("spotify-container").replaceChildren(frame);
+  } else {
+    if (config.songTitle) $("song-title-text").textContent = config.songTitle;
+    if (config.songArtist) $("song-artist-text").textContent = config.songArtist;
+    const query = [config.songTitle, config.songArtist].filter(Boolean).join(" ");
+    songCard.href = config.songLink || "https://open.spotify.com/search/" + encodeURIComponent(query);
+    songCard.setAttribute("aria-label", "ฟังเพลง " + query + " ใน Spotify");
   }
 
   // ---- Copy address ----
@@ -154,20 +145,4 @@
   }));
   renderDress(swatches[0]);
 
-  // ---- Gentle parallax on the location photo ----
-  const loc = $("location");
-  const locBg = document.querySelector(".loc-bg");
-  if (loc && locBg && !reduce) {
-    let ticking = false;
-    const move = () => {
-      const r = loc.getBoundingClientRect();
-      if (r.bottom > 0 && r.top < innerHeight) {
-        const p = (r.top + r.height / 2 - innerHeight / 2) / innerHeight;
-        locBg.style.transform = `translate3d(0, ${(p * -48).toFixed(1)}px, 0)`;
-      }
-      ticking = false;
-    };
-    addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(move); } }, { passive: true });
-    move();
-  }
 })();

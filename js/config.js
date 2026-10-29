@@ -22,10 +22,20 @@ window.WEDDING_CONFIG = {
   // Optional Spotify player section (use the EMBED URL: https://open.spotify.com/embed/track/...).
   spotifyEmbedUrl: "",
 
+  // Song card in the "เพลงของเรา" section. songLink is optional: when empty, the card opens a Spotify search.
+  songTitle: "Beautiful in White",
+  songArtist: "Shane Filan",
+  songLink: "https://open.spotify.com/track/0lUdYoSr8Hm3GL0HZld4ac?si=06589a105504444d",
+
   gallery: [
-    { src: "assets/images/gallery-1.webp", alt: "ธิดาพรและวันชนะยืนคู่กันถือช่อดอกไม้" },
-    { src: "assets/images/gallery-2.webp", alt: "เจ้าสาวพิงไหล่เจ้าบ่าว" },
-    { src: "assets/images/gallery-3.webp", alt: "เจ้าสาวนั่งเก้าอี้ เจ้าบ่าวยืนข้างกัน" },
-    { src: "assets/images/gallery-4.webp", alt: "เจ้าบ่าวยืนข้างเจ้าสาวที่นั่งถือช่อดอกไม้" }
+    { src: "assets/images/photo-01.webp", alt: "ธิดาพรและวันชนะยืนเคียงกันในระเบียงดอกไม้" },
+    { src: "assets/images/photo-02.webp", alt: "มือของคู่บ่าวสาวที่จับกัน" },
+    { src: "assets/images/photo-03.webp", alt: "เจ้าบ่าวจูบหน้าผากเจ้าสาว" },
+    { src: "assets/images/photo-05.webp", alt: "เจ้าสาวเงยหน้ามองเจ้าบ่าว" },
+    { src: "assets/images/photo-06.webp", alt: "เจ้าสาวนั่งบนเก้าอี้ เจ้าบ่าวยืนข้างกัน" },
+    { src: "assets/images/photo-07.webp", alt: "คู่บ่าวสาวหน้าซุ้มประตูโค้ง" },
+    { src: "assets/images/photo-08.webp", alt: "คู่บ่าวสาวเดินจับมือกันบนพื้นหินอ่อน" },
+    { src: "assets/images/photo-09.webp", alt: "คู่บ่าวสาวยืนเคียงกัน" },
+    { src: "assets/images/photo-10.webp", alt: "เจ้าสาวถือช่อดอกไม้เคียงข้างเจ้าบ่าว" }
   ]
 };
