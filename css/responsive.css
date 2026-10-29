@@ -38,9 +38,10 @@
   .date-num { font-size: 96px; }
   .slide { flex-basis: 340px; }
   .gallery-track { padding-inline: calc(50% - 170px); }
-  .location { min-height: 620px; align-items: center; }
-  .loc-bg img { object-position: 50% 30%; }
-  .loc-shade { background: linear-gradient(90deg, rgba(27, 44, 74, .82) 0%, rgba(27, 44, 74, .55) 45%, rgba(27, 44, 74, .1) 80%); }
+    .location { min-height: 620px; align-items: center; background: var(--ink); }
+  .loc-bg { inset: -8% 0 -8% 45%; }
+  .loc-bg img { object-position: 50% 15%; }
+  .loc-shade { background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 45%, rgba(27, 44, 74, .55) 53%, rgba(27, 44, 74, 0) 72%); }
   .loc-content { max-width: 1120px; padding-block: 80px; }
   .loc-content > * { max-width: 460px; }
   .music { right: 28px; bottom: 28px; }
