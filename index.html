@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ธิดาพร &amp; วันชนะ · 2 มกราคม 2570</title>
+  <meta name="description" content="ขอเรียนเชิญร่วมเป็นเกียรติในพิธีมงคลสมรส ธิดาพร (ครูนัท) และ วันชนะ (ดอลลาร์) วันเสาร์ที่ 2 มกราคม 2570 ณ บ้านวังกะเบา จ.นครพนม">
+  <meta name="theme-color" content="#F7FAFD">
+
+  <!-- Share preview (LINE / Facebook / Messenger).
+       After deploying, replace https://YOUR-SITE.netlify.app with the real site URL. -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="th_TH">
+  <meta property="og:title" content="ธิดาพร &amp; วันชนะ · ขอเรียนเชิญร่วมเป็นเกียรติ">
+  <meta property="og:description" content="วันเสาร์ที่ 2 มกราคม 2570 · บ้านวังกะเบา จ.นครพนม #DNTHEWEDDING">
+  <meta property="og:url" content="https://YOUR-SITE.netlify.app/">
+  <meta property="og:image" content="https://YOUR-SITE.netlify.app/assets/images/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=IBM+Plex+Sans+Thai:wght@300;400;500&family=Noto+Serif+Thai:wght@300;400;500&display=swap">
+  <link rel="preload" as="image" href="assets/images/portrait.webp" media="(max-width: 899px)">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>document.documentElement.classList.add('js', 'is-locked');</script>
+</head>
+<body>
+
+<!-- Opening cover: tap the seal to open the invitation -->
+<div class="cover" id="cover" role="dialog" aria-modal="true" aria-labelledby="cover-title">
+  <div class="cover-frame" aria-hidden="true"></div>
+  <div class="cover-inner">
+    <p class="eyebrow">THE WEDDING OF</p>
+    <button class="seal" id="seal" type="button" aria-label="เปิดการ์ดเชิญ">
+      <span>D</span><em>&amp;</em><span>N</span>
+    </button>
+    <div class="cover-text">
+      <p class="cover-title" id="cover-title">คุณได้รับเชิญ</p>
+      <p class="cover-hint">แตะตราประทับเพื่อเปิดการ์ด</p>
+    </div>
+    <p class="cover-date">02 · 01 · 2027</p>
+  </div>
+</div>
+
+<button class="music" id="music-toggle" type="button" aria-pressed="false" aria-label="เปิดเพลง" hidden>
+  <svg class="disc" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M12 5.5a6.5 6.5 0 0 1 6.5 6.5"/></svg>
+</button>
+<audio id="bg-music" loop preload="none"></audio>
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="hero" id="home" aria-label="หน้าแรก">
+    <div class="hero-media">
+      <picture>
+        <source media="(min-width: 900px)" srcset="assets/images/hero.webp">
+        <img src="assets/images/portrait.webp" alt="ธิดาพรและวันชนะ ในชุดสูทสีเทาและชุดไทยสีเงิน" width="950" height="1425" fetchpriority="high">
+      </picture>
+    </div>
+    <div class="hero-fade" aria-hidden="true"></div>
+    <div class="dust" aria-hidden="true"></div>
+    <div class="hero-copy">
+      <p class="eyebrow hero-eyebrow">WE ARE GETTING MARRIED</p>
+      <h1 class="hero-names" aria-label="Dollar &amp; Nat">
+        <span class="word" data-split data-delay="1.3" aria-hidden="true">Dollar</span>
+        <span class="amp" aria-hidden="true">&amp;</span>
+        <span class="word" data-split data-delay="2.2" aria-hidden="true">Nat</span>
+      </h1>
+      <p class="hero-thai">ธิดาพร &amp; วันชนะ</p>
+    </div>
+  </section>
+
+  <!-- Date -->
+  <section class="date-band" aria-label="วันจัดงาน">
+    <span class="gold-line" aria-hidden="true"></span>
+    <p class="date-row">
+      <span class="date-side">วันเสาร์</span>
+      <span class="date-num">2</span>
+      <span class="date-side date-side--end">มกราคม<br>พ.ศ. 2570</span>
+    </p>
+  </section>
+
+  <!-- Invitation -->
+  <section class="section invite wrap" id="invite" aria-labelledby="invite-title">
+    <p class="eyebrow reveal">INVITATION</p>
+    <h2 class="reveal" id="invite-title">ขอเรียนเชิญร่วมเป็นเกียรติ</h2>
+
+    <div class="parents reveal">
+      <p>นางสมเพรียน โพนชา<br>นายวิชัย โพนชา</p>
+      <span class="parents-and">และ</span>
+      <p>นางอุษณีย์ ห้วยทราย<br>นายวันชัย ห้วยทราย</p>
+    </div>
+
+    <p class="invite-text reveal">มีความยินดีขอเรียนเชิญท่านเป็นเกียรติ<br>เนื่องในพิธีมงคลสมรส ระหว่าง</p>
+
+    <div class="couple reveal">
+      <p class="person"><span class="person-role">เจ้าสาว</span>นางสาวธิดาพร โพนชา<span class="nick">(ครูนัท)</span></p>
+      <span class="couple-amp" aria-hidden="true">&amp;</span>
+      <p class="person"><span class="person-role">เจ้าบ่าว</span>นายวันชนะ ห้วยทราย<span class="nick">(ดอลลาร์)</span></p>
+    </div>
+  </section>
+
+  <!-- Countdown -->
+  <section class="section countdown-wrap" aria-labelledby="countdown-title">
+    <div class="countdown-card reveal">
+      <p class="eyebrow">COUNTDOWN</p>
+      <h2 class="visually-hidden" id="countdown-title">นับถอยหลังถึงวันงาน</h2>
+      <div class="countdown" role="timer" aria-label="เวลาที่เหลือถึงวันงาน">
+        <div><strong id="days">--</strong><span>วัน</span></div>
+        <div><strong id="hours">--</strong><span>ชั่วโมง</span></div>
+        <div><strong id="minutes">--</strong><span>นาที</span></div>
+        <div><strong id="seconds">--</strong><span>วินาที</span></div>
+      </div>
+      <p class="countdown-message" id="countdown-message" aria-live="polite">นับถึงพิธีแห่ขันหมาก 09.09 น.</p>
+      <a class="text-link" id="calendar-link" href="#" target="_blank" rel="noopener noreferrer">เพิ่มลงปฏิทิน</a>
+    </div>
+  </section>
+
+  <!-- Ceremony schedule -->
+  <section class="section ceremony wrap" id="ceremony" aria-labelledby="ceremony-title">
+    <p class="eyebrow reveal">THE CEREMONY</p>
+    <h2 class="reveal" id="ceremony-title">กำหนดการ</h2>
+    <ol class="schedule">
+      <li class="reveal">
+        <svg class="sched-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15.5h16"/><path d="M6 15.5l1.6 4h8.8l1.6-4"/><path d="M8 15.5c0-3.2 1.8-5.5 4-5.5s4 2.3 4 5.5"/><path d="M12 10V7.5"/><path d="M10 7.8c.6-1.7 1.2-2.7 2-3.8.8 1.1 1.4 2.1 2 3.8"/></svg>
+        <time datetime="2027-01-02T09:09+07:00">09.09</time>
+        <span class="sched-name">พิธีแห่ขันหมาก</span>
+      </li>
+      <li class="reveal">
+        <svg class="sched-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l-2.4 4.8h4.8z"/><path d="M8.6 7.8h6.8l-1.4 4H10z"/><path d="M7.2 11.8h9.6l-1.4 4.4H8.6z"/><path d="M9 16.2l-1 3.8h8l-1-3.8"/></svg>
+        <time datetime="2027-01-02T10:09+07:00">10.09</time>
+        <span class="sched-name">พิธีบายศรีสู่ขวัญ</span>
+      </li>
+      <li class="reveal">
+        <svg class="sched-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12.5" cy="13" r="6"/><circle cx="12.5" cy="13" r="3.4"/><path d="M3.5 4.5v4.2a1.3 1.3 0 0 0 2.6 0V4.5"/><path d="M4.8 4.5V20"/><path d="M21 4.5c-1.5 1-2 3-2 5.2h2V20"/></svg>
+        <time datetime="2027-01-02T11:09+07:00">11.09</time>
+        <span class="sched-name">รับประทานอาหาร <small>เป็นต้นไป</small></span>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section gallery" id="gallery" aria-labelledby="gallery-title">
+    <div class="wrap">
+      <p class="eyebrow reveal">OUR MOMENTS</p>
+      <h2 class="reveal" id="gallery-title">ภาพความทรงจำ</h2>
+    </div>
+    <div class="gallery-track reveal" id="gallery-track" tabindex="0" aria-label="ภาพคู่บ่าวสาว ปัดเพื่อดูภาพถัดไป"></div>
+    <div class="gallery-controls">
+      <button class="round-btn" id="gallery-prev" type="button" aria-label="ภาพก่อนหน้า"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <p class="gallery-count" id="gallery-count" aria-live="polite">01 / 04</p>
+      <button class="round-btn" id="gallery-next" type="button" aria-label="ภาพถัดไป"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
+  </section>
+
+  <!-- Location -->
+  <section class="location" id="location" aria-labelledby="location-title">
+    <div class="loc-bg" aria-hidden="true">
+      <img src="assets/images/gallery-4.webp" alt="" loading="lazy">
+    </div>
+    <div class="loc-shade" aria-hidden="true"></div>
+    <div class="loc-content wrap">
+      <p class="eyebrow eyebrow--light reveal">LOCATION</p>
+      <h2 class="reveal" id="location-title">บ้านวังกะเบา</h2>
+      <p class="reveal" id="address">บ้านเลขที่ 16/1 ม.4 บ้านวังกะเบา ต.โคกสว่าง อ.ปลาปาก จ.นครพนม</p>
+      <div class="loc-actions reveal">
+        <a class="btn btn--light" id="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%A7%E0%B8%B1%E0%B8%87%E0%B8%81%E0%B8%B0%E0%B9%80%E0%B8%9A%E0%B8%B2" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          นำทางด้วย Google Maps
+        </a>
+        <button class="btn btn--ghost" id="copy-address" type="button">คัดลอกที่อยู่</button>
+      </div>
+    </div>
+  </section>
+  <div class="map-embed wrap" id="map-embed" hidden></div>
+
+  <!-- Optional: Spotify song (shown only when spotifyEmbedUrl is set in js/config.js) -->
+  <section class="section song wrap" id="song" aria-labelledby="song-title" hidden>
+    <p class="eyebrow reveal">OUR SONG</p>
+    <h2 class="reveal" id="song-title">เพลงของเรา</h2>
+    <div class="spotify reveal" id="spotify-container"></div>
+  </section>
+
+  <!-- Dress code -->
+  <section class="section dress wrap" aria-labelledby="dress-title">
+    <p class="eyebrow reveal">DRESS CODE</p>
+    <h2 class="reveal" id="dress-title">การแต่งกาย</h2>
+    <div class="swatches reveal" role="group" aria-label="สีการแต่งกาย">
+      <button type="button" class="swatch" style="--c:#FFFFFF" data-name="ขาว" aria-pressed="true" aria-label="ขาว"></button>
+      <button type="button" class="swatch" style="--c:#6AA9DE" data-name="ฟ้า" aria-pressed="false" aria-label="ฟ้า"></button>
+      <button type="button" class="swatch" style="--c:#3D5A85" data-name="กรมท่า" aria-pressed="false" aria-label="กรมท่า"></button>
+    </div>
+    <p class="dress-text reveal" id="dress-text">ขอเชิญแต่งกายโทน ขาว · ฟ้า · กรมท่า</p>
+  </section>
+</main>
+
+<footer class="footer">
+  <p class="footer-mono" aria-hidden="true">D<em>&amp;</em>N</p>
+  <p class="hashtag">#DNTHEWEDDING</p>
+  <p class="footer-date">02 · 01 · 2027</p>
+  <p class="apology">ขออภัยหากมิได้เรียนเชิญด้วยตนเอง</p>
+  <p class="credit">Designed &amp; Developed by <a href="https://www.jenjirahuaisai.com" target="_blank" rel="noopener noreferrer">Jenjira Huaisai</a></p>
+</footer>
+
+<!-- Photo viewer -->
+<dialog class="lightbox" id="lightbox" aria-label="ดูภาพขนาดใหญ่">
+  <img id="lightbox-img" src="" alt="">
+  <button class="lb-close round-btn round-btn--light" id="lb-close" type="button" aria-label="ปิด"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="lb-prev round-btn round-btn--light" id="lb-prev" type="button" aria-label="ภาพก่อนหน้า"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="lb-next round-btn round-btn--light" id="lb-next" type="button" aria-label="ภาพถัดไป"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  <p class="lb-count" id="lb-count"></p>
+</dialog>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="js/config.js"></script>
+<script src="js/countdown.js" defer></script>
+<script src="js/gallery.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
