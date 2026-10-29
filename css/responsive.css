@@ -1,0 +1,47 @@
+/* Small phones */
+@media (max-width: 359px) {
+  .wrap { padding-inline: 18px; }
+  .hero-names { font-size: 2.9rem; }
+  .date-row { gap: 14px; }
+  .date-num { font-size: 64px; }
+  .date-side { min-width: 70px; }
+  .countdown strong { font-size: 32px; }
+  .schedule li { grid-template-columns: 28px 76px minmax(0, 1fr); gap: 10px; }
+  .schedule time { font-size: 25px; }
+  .parents { grid-template-columns: 1fr; }
+}
+
+/* Tablet and up */
+@media (min-width: 600px) {
+  .section { padding-block: 110px 0; }
+  h2 { font-size: 1.9rem; }
+  .countdown strong { font-size: 52px; }
+  .slide { flex-basis: 46%; }
+  .gallery-track { padding-inline: 8%; }
+}
+
+/* Desktop: landscape hero, names on the left over the open arch */
+@media (min-width: 900px) {
+  .hero { max-height: 920px; }
+  .hero-media img { object-position: 70% 40%; }
+  .hero-fade {
+    top: 0; height: auto;
+    background:
+      linear-gradient(90deg, var(--ground) 0%, rgba(247, 250, 253, .88) 26%, rgba(247, 250, 253, 0) 56%),
+      linear-gradient(180deg, rgba(247, 250, 253, 0) 75%, var(--ground) 100%);
+  }
+  .hero-copy { left: 7vw; right: auto; bottom: auto; top: 50%; transform: translateY(-50%); align-items: flex-start; text-align: left; max-width: 46vw; }
+  .hero-eyebrow { text-indent: 0; }
+  .hero-names { font-size: clamp(4.5rem, 7vw, 6.8rem); }
+  .hero-names .amp { display: inline-block; }
+  .hero-thai { font-size: 18px; }
+  .date-num { font-size: 96px; }
+  .slide { flex-basis: 340px; }
+  .gallery-track { padding-inline: calc(50% - 170px); }
+  .location { min-height: 620px; align-items: center; }
+  .loc-bg img { object-position: 50% 30%; }
+  .loc-shade { background: linear-gradient(90deg, rgba(27, 44, 74, .82) 0%, rgba(27, 44, 74, .55) 45%, rgba(27, 44, 74, .1) 80%); }
+  .loc-content { max-width: 1120px; padding-block: 80px; }
+  .loc-content > * { max-width: 460px; }
+  .music { right: 28px; bottom: 28px; }
+}
